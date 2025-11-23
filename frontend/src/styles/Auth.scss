@@ -1,0 +1,89 @@
+@import './App.scss';
+
+.auth-container {
+  min-height: 100vh;
+  background: $primary-gradient;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  .auth-card {
+    @include card-style;
+    width: 100%;
+    max-width: 400px;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: $text-dark;
+      font-size: 1.8rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: $text-light;
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      input,
+      select {
+        @include form-input;
+      }
+    }
+
+    button {
+      @include button-style;
+      margin-top: 0.5rem;
+    }
+
+    .auth-links {
+      text-align: center;
+      margin-top: 1.5rem;
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+
+        &:hover {
+          color: darken($primary-color, 10%);
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .message {
+      &.success {
+        @include message-style(#d4edda, #155724);
+      }
+
+      &.error {
+        @include message-style(#f8d7da, #721c24);
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 10px;
+
+    .auth-card {
+      padding: 1.5rem;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
